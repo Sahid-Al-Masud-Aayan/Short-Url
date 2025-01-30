@@ -3,7 +3,7 @@ const shortURLGenerator = require('../../controllers/shorturl/ShortUrlMaker')
 const ShortURLrouter = express.Router()
 
 
-ShortURLrouter.get('/shortUrl', shortURLGenerator)
+ShortURLrouter.post('/shortUrl', shortURLGenerator)
 
 
 module.exports = ShortURLrouter
