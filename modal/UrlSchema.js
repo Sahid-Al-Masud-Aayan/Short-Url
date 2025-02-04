@@ -1,12 +1,14 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
 
-const shortUrlSchema = new Schema({
-  url:{
-    type: String,
-    required: true,
-  },
-  shortID: string
+const UrlSchema = new mongoose.Schema({
+    url: {  // Ensure this matches what you send
+        type: String,
+        required: true
+    },
+    ShortID: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = mongoose.model('ShorterUrl', shortUrlSchema);
+module.exports = mongoose.model("ShorterUrl", UrlSchema);
