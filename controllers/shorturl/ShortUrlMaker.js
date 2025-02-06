@@ -21,7 +21,7 @@ const shortURLGenerator = async (req, res) => {
             return res.render("index",{
                 message: "Short Url created successfully!", 
                 longUrl: existingUrl.url, 
-                shortUrl: `https://localhost:3000/${existingUrl.ShortID}`,
+                shortUrl: `http://localhost:3000/${existingUrl.ShortID}`,
              })
         }
 
@@ -34,7 +34,7 @@ const shortURLGenerator = async (req, res) => {
          res.render("index",{
             message: "Short Url created successfully!", 
             longUrl: ShortURLtoDB.url, 
-            shortUrl: `https://localhost:3000/${ShortURLtoDB.ShortID}`,
+            shortUrl: `http://localhost:3000/${ShortURLtoDB.ShortID}`,
          })
 
     } catch (error) {
