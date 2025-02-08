@@ -3,14 +3,13 @@ const homePage =(req, res)=>{
 }
 
 
-// const loginPage =(req, res)=>{
-//     res.render('index');
-// }
+const loginPage = (req, res)=>{
+    res.render('login');
+}
 
 
-// const registerPage =(req, res)=>{
-// }
+const registerPage =(req, res)=>{
+    res.render('register')
 
-module.exports= homePage
-// module.exports= loginPage
-// module.exports= registerPage
+}
+module.exports= {homePage, registerPage, loginPage  }

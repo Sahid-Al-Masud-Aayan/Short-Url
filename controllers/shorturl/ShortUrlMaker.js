@@ -6,6 +6,16 @@ const shortURLGenerator = async (req, res) => {
     try {
         const { url } = req.body;
 
+        if(!url){ 
+            return res.render("index", { 
+            error: "URL is required!", 
+            }) 
+            } 
+            if(!isUrlValid(url)){ 
+            return res.render("index", { 
+            error: "URL is not valid!", 
+            })
+            }
         if (!url) {
             return res.status(400).send('Please enter a URL');
         }

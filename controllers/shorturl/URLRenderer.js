@@ -3,14 +3,25 @@ const UrlSchema = require("../../modal/UrlSchema");
 const RenderingtheURL = async (req, res) => {
     const ShortID = req.params.ShortID;
 
-    const existingUrl = await UrlSchema.findOne({ ShortID });
+    const existingUrl = await UrlSchema.findOneAndUpdate({ ShortID }, {$push: {visitHistory:{clickedAt: Date.now()}}}, {new: true});
 
     if (!existingUrl) {
-        return res.status(404).send("Page not found"); // ✅ Ensures only one response is sent
+        return res.render('error') // ✅ Ensures only one response is sent
     }
 
     res.redirect(existingUrl.url);
-    console.log(existingUrl.url) // ✅ Now this is sent only if the ID exists
 };
 
-module.exports = RenderingtheURL;
+const visitHistory = async (req, res)=>{
+    const ShortID = req.params.ShortId;
+
+    const existUrl = await UrlSchema.findOne({ShortID: ShortID})    
+
+    if(!existUrl){
+     return res.status(404).send("ID not found!")
+    }
+
+    res.send(existUrl)
+}
+
+module.exports = {RenderingtheURL, visitHistory};

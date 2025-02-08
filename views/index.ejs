@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShortURL Generator</title>
-    <link rel="stylesheet" href="/style/style.css">
-</head>
-<body>
-    <div class="columnd">
-
-        <nav class="ml">
-            <button class="">Login</button>
-            <button class="">Register</button>
-        </nav>
-        
+<%- include("./particles/navbar.ejs") %>
         <div class="container">
             <h1>Shorten Your Long URLs with Ease!</h1>
             <p class="subtitle">
@@ -21,32 +6,40 @@
             </p>
         
             <form action="http://localhost:3000/api/v1/generator/shortUrl" method="post">
-                <input type="text" placeholder="Enter your long URL here..." required name="url" value="<%= locals.longUrl %>">
-                <button type="submit">Generate Short URL</button>
+                <% if (locals.error) { %>
+                    <p class="error-message"><%= error%></p>
+                 
+                <% } %>
+                <div class="tofex">
+                    <input type="text" placeholder="Enter your long URL here (including https)" name="url" value="<%= locals.longUrl %>">
+                    <button class="captain" type="submit">Generate</button>
+                </div>
+                <% if(locals.shortUrl){ %>
                 <div class="shortURLdiv">
                     <h3 class="shtText">Short URL- </h3>
                     <div class="whiteSht">
-                        <a href="<%= locals.shortUrl %>" class="shtId"><%= locals.shortUrl %></a>
+                        <a href="<%= locals.shortUrl %>" class="shtId" target="_blank"><%= locals.shortUrl %></a>
                     </div>
-                    <button class="buttonb">copy</button>
+                    <button class="log copier" type="button" class="buttonb">copy</button>
                 </div>
             </form>
-            
-            <!-- <div class="info-section">
-                <h2>✨ Why Use Our Shortener?</h2>
-                <ul>
-                    <li>🔹 **Fast & Reliable** – Generate short links in seconds.</li>
-                    <li>🔹 **Easy to Use** – Just copy, paste, and go!</li>
-                    <li>🔹 **Completely Free** – No sign-up required.</li>
-                    <li>🔹 **Track Clicks** – See how your links are performing.</li>
-                </ul>
-            </div> -->
-            
-            <footer>
-                <p>Built by Aayan | MiniURL 2025</p>
-            </footer>
+            <a href="http://localhost:3000/" class="log1">Generate New URL</a>
+            <% } %>
+<%- include("./particles/footer.ejs") %>
         </div>
         </div>
+        <script>
+            const copyButton = document.querySelector(".copier");
+            copyButton.addEventListener("click", () => {
+                const shortUrl = document.querySelector(".shtId");
+                navigator.clipboard.writeText(shortUrl.textContent).then(() => {
+                    copyButton.textContent = "Copied!";
+                    setTimeout(() => {
+                        copyButton.textContent = "copy";
+                    }, 500);
+                });
+            });
+         </script>
     </body>
     </html>
     

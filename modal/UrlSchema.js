@@ -8,7 +8,14 @@ const UrlSchema = new mongoose.Schema({
     ShortID: {
         type: String,
         required: true
-    }
+    },
+    visitHistory: [
+        {
+         clickedAt:{
+          type: Date,
+        }
+      }
+    ]
 });
 
 module.exports = mongoose.model("ShorterUrl", UrlSchema);

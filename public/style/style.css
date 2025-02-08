@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 .ml{
@@ -19,6 +19,7 @@ body {
 .columnd{
     display: flex;
     flex-direction: column;
+    justify-content: start;
 }
 /* Center content */
 .container {
@@ -53,17 +54,24 @@ form {
     flex-direction: column;
     align-items: center;
 }
-
+.tofex{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    
+}
 input {
-    width: 95%;
+    width: 400px;
     padding: 15px;
     font-size: 18px;
     border: none;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     text-align: center;
 }
-
+a {
+    text-decoration: none;
+}
 .shortURLdiv{
     display: flex;
     align-items: center;
@@ -74,18 +82,50 @@ input {
 }
 .whiteSht{
     background-color: white;
-    width: 250px;
-    height: 45px;
+    padding: 10px;
     border-radius: 10px;
 }
 /* Button Design */
-button {
+.log {
     background-color: #007BFF;
     color: white;
-    font-size: 20px;
-    padding: 12px 25px;
+    font-size: 21px;
+    padding: 10px;
     border: none;
+    cursor: pointer;
     border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+.error-message {
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+.log1 {
+    background-color: #007BFF;
+    color: white;
+    font-size: 23px;
+    padding: 10px;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+.captain{
+    font-weight: 700;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -124,4 +164,137 @@ footer {
     margin-top: 20px;
     font-size: 14px;
     opacity: 0.8;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: navy;
+}
+
+.login-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: navy;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.register-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.register-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.register-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.register-button:hover {
+    background-color: #218838;
 }
