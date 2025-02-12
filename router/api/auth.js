@@ -4,6 +4,6 @@ const RegisterFunction = require('../../controllers/auth/register')
 const Authrouter = express.Router()
 
 
-Authrouter.get('/login', loginFunction)
-Authrouter.get('/register', RegisterFunction)
+Authrouter.post('/login', loginFunction)
+Authrouter.post('/register', RegisterFunction)
 module.exports = Authrouter

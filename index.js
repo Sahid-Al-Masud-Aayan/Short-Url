@@ -1,5 +1,6 @@
 const express = require('express')
 const router = require('./router')
+require('dotenv').config()
 const dbConnector = require('./config/dbConnect')
 const app = express()
 app.use(express.urlencoded({ extended: true }))

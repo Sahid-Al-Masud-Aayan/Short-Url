@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
+    <%- include("./particles/navbar.ejs") %>
     <div class="register-container">
         <h2 class="register-title">Create an Account</h2>
         <form class="register-form" action="/register" method="POST">
@@ -17,9 +18,6 @@
             <input class="register-input" type="email" required>
 
             <label class="register-label" for="password">Password:</label>
-            <input class="register-input" type="password" required>
-
-            <label class="register-label" for="confirmPassword">Confirm Password:</label>
             <input class="register-input" type="password" required>
 
             <button class="register-button" type="submit">Register</button>

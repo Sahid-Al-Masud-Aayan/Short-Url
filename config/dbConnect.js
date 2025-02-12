@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const dbConnector= ()=>{
-    mongoose.connect('mongodb+srv://AayanKhan:idontgiveashit@cluster0.uszpu.mongodb.net/MyShortUrl?retryWrites=true&w=majority&appName=Cluster0')
+    mongoose.connect(process.env.DATABASE_CONNECTOR_LINK)
   .then(() => console.log('mongoDB is Connected!'));
 }
 
