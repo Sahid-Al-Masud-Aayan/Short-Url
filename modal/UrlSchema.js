@@ -9,6 +9,14 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isAuth:{
+        type: Boolean,
+        default: false
+    },
+    author:{
+        ref: 'RegisteredUser',
+        type: mongoose.Schema.ObjectId,
+    },
     visitHistory: [
         {
          clickedAt:{

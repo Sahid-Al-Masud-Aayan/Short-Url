@@ -4,23 +4,27 @@ body {
     background: linear-gradient(to right, #003366, #0055a5);
     color: white;
     text-align: center;
+    display: flex;
+    justify-content: center;
     margin: 0;
     padding: 0;
+
+}
+.betweener{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
+}
+.logo{
+    color: white;
+    font-weight: 700;
+    font-size: 36px;
 }
 .ml{
     display: flex;
     gap: 10px;
-    margin-top: 20px;
-    margin-left: 100%;
 }
-.columnd{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-}
+
 /* Center content */
 .container {
     max-width: 600px;
@@ -164,15 +168,6 @@ footer {
     font-size: 14px;
     opacity: 0.8;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .login-container {
     background: white;
@@ -180,6 +175,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    margin-top: 60%;
     text-align: center;
 }
 
@@ -228,15 +224,6 @@ body {
 .login-button:hover {
     background-color: #0056b3;
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .register-container {
     background: white;
@@ -244,6 +231,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 350px;
+    margin-top: 40%;
     text-align: center;
 }
 

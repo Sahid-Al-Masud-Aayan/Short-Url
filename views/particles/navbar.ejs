@@ -9,7 +9,16 @@
 <body>
     <div class="columnd">
 
-        <nav class="ml">
-            <a href="/login" class="log">Login</a>
-            <a href="/register" class="log">Register</a>
+        <nav>
+            <div class="betweener">
+                <a href="/" class="logo">MiniURL</a>
+                <div class="ml">
+                    <% if (locals.inLoggedUser) { %>
+                        <a href="/dashboard" class="log">Dashboard</a>
+                    <% }else{ %>
+                    <a href="/login" class="log">Login</a>
+                    <a href="/register" class="log">Register</a>
+                    <% } %>
+                </div>
+            </div>
         </nav>

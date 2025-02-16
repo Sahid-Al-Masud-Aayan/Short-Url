@@ -10,12 +10,12 @@
     <%- include("./particles/navbar.ejs") %>
     <div class="login-container">
         <h2 class="login-title">Login</h2>
-        <form class="login-form" action="/login" method="POST">
+        <form class="login-form" action="http://localhost:3000/api/v1/auth/login" method="POST">
             <label class="login-label" >Username:</label>
-            <input class="login-input" type="text" required>
+            <input class="login-input" type="text" name="email" required>
 
             <label class="login-label"> Password: </label>
-            <input class="login-input" type="password" required>
+            <input class="login-input" type="password" name="password" required>
 
             <button class="login-button" type="submit">Login</button>
         </form>
