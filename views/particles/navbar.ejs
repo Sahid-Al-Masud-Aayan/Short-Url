@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-    <div class="columnd">
-
-        <nav>
-            <div class="betweener">
-                <a href="/" class="logo">MiniURL</a>
-                <div class="ml">
+    <div class="container">
+        <nav class="navbar">
+            <div class="navbar__content">
+                <a href="/" class="navbar__logo">MiniURL</a>
+                <div class="navbar__links">
                     <% if (locals.inLoggedUser) { %>
-                        <a href="/dashboard" class="log">Dashboard</a>
+                        <a href="/dashboard" class="navbar__link">Dashboard</a>
                     <% }else{ %>
-                    <a href="/login" class="log">Login</a>
-                    <a href="/register" class="log">Register</a>
+                    <a href="/login" class="navbar__link">Login</a>
+                    <a href="/register" class="navbar__link">Register</a>
                     <% } %>
                 </div>
             </div>
         </nav>
+    </div>
+</body>
+</html>

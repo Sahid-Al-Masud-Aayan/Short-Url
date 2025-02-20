@@ -16,6 +16,11 @@ router.get("/visithistory/:ShortId", visitHistory)
 router.get("/login", loginPage)
 router.get("/register", registerPage)
 router.get("/dashboard", UserValidation, (req, res) => {
+    if(req.user){
+        res.render('dashboard')
+    }else{
+        res.redirect('/login')
+    }
 res.send(UserValidation.user);
 })
 

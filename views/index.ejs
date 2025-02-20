@@ -1,45 +1,45 @@
 <%- include("./particles/navbar.ejs") %>
-        <div class="container">
-            <h1>Shorten Your Long URLs with Ease!</h1>
-            <p class="subtitle">
-                Paste your long URL below and generate a **short & shareable link** instantly! 🚀
-            </p>
-        
-            <form action="http://localhost:3000/api/v1/generator/shortUrl" method="post">
-                <% if (locals.error) { %>
-                    <p class="error-message"><%= error%></p>
-                 
-                <% } %>
-                <div class="tofex">
-                    <input type="text" placeholder="Enter your long URL here (including https)" name="url" value="<%= locals.longUrl %>">
-                    <button class="captain" type="submit">Generate</button>
+<div class="main-container">
+    <h1 class="main-heading">Shorten Your Long URLs with Ease!</h1>
+    <p class="main-subtitle">
+        Paste your long URL below and generate a <strong>short & shareable link</strong> instantly!✂️💯
+    </p>
+
+    <form action="http://localhost:3000/api/v1/generator/shortUrl" method="post" class="url-form">
+        <% if (locals.error) { %>
+            <p class="error-message"><%= error %></p>
+        <% } %>
+        <div class="input-group">
+            <input type="text" placeholder="Enter your long URL here (including https)" name="url" value="<%= locals.longUrl %>" class="url-input">
+            <button type="submit" class="generate-button">Generate</button>
+        </div>
+        <% if (locals.shortUrl) { %>
+            <div class="short-url-container">
+                <h3 class="short-url-label">Short URL:</h3>
+                <div class="short-url-box">
+                    <a href="<%= locals.shortUrl %>" class="short-url-link" target="_blank"><%= locals.shortUrl %></a>
                 </div>
-                <% if(locals.shortUrl){ %>
-                <div class="shortURLdiv">
-                    <h3 class="shtText">Short URL- </h3>
-                    <div class="whiteSht">
-                        <a href="<%= locals.shortUrl %>" class="shtId" target="_blank"><%= locals.shortUrl %></a>
-                    </div>
-                    <button class="log copier" type="button" class="buttonb">copy</button>
-                </div>
-            </form>
-            <a href="http://localhost:3000/" class="log1">Generate New URL</a>
-            <% } %>
+                <button type="button" class="copy-button">Copy</button>
+            </div>
+        <% } %>
+    </form>
+    <% if (locals.shortUrl) { %>
+        <a href="http://localhost:3000/" class="new-url-button">Generate New URL</a>
+    <% } %>
+</div>
 <%- include("./particles/footer.ejs") %>
-        </div>
-        </div>
-        <script>
-            const copyButton = document.querySelector(".copier");
-            copyButton.addEventListener("click", () => {
-                const shortUrl = document.querySelector(".shtId");
-                navigator.clipboard.writeText(shortUrl.textContent).then(() => {
-                    copyButton.textContent = "Copied!";
-                    setTimeout(() => {
-                        copyButton.textContent = "copy";
-                    }, 500);
-                });
+
+<script>
+    const copyButton = document.querySelector(".copy-button");
+    if (copyButton) {
+        copyButton.addEventListener("click", () => {
+            const shortUrl = document.querySelector(".short-url-link");
+            navigator.clipboard.writeText(shortUrl.textContent).then(() => {
+                copyButton.textContent = "Copied!";
+                setTimeout(() => {
+                    copyButton.textContent = "Copy";
+                }, 1500);
             });
-         </script>
-    </body>
-    </html>
-    
+        });
+    }
+</script>
