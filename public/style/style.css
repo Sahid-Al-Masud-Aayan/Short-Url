@@ -14,7 +14,7 @@ body {
 }
 
 .main-container {
-    max-width: 800px;
+    max-width: 750px;
     margin: 2rem auto;
     padding: 1rem;
     text-align: center;
@@ -41,15 +41,14 @@ body {
 
 .input-group {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
 }
 
 .url-input {
     flex: 1;
-    padding: 0.75rem;
+    padding: 1rem;
     border: 2px solid #ddd;
-    border-radius: 5px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     font-size: 1rem;
     outline: none;
     transition: border-color 0.3s ease;
@@ -64,7 +63,8 @@ body {
     background-color: #007bff;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -148,9 +148,9 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #ffffff;
+    background-color: #ffea00;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .navbar__content {
@@ -178,13 +178,9 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar__link:hover {
     background-color: #007bff;
     color: #ffffff;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar__content {
@@ -238,14 +234,25 @@ li {
 
 /* Footer */
 
-
+.aligned-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+.aligned-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh; /* Full viewport height */
+}
 .login-container {
-    background: white;
+    width: 300px; /* Adjust width as needed */
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin-top: 60%;
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 

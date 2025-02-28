@@ -1,10 +1,12 @@
 <%- include("./particles/navbar.ejs") %>
-<div class="main-container">
-    <h1 class="main-heading">Shorten Your Long URLs with Ease!</h1>
-    <p class="main-subtitle">
-        Paste your long URL below and generate a <strong>short & shareable link</strong> instantly!✂️💯
-    </p>
-
+<div class="aligned-row">
+    
+    <div class="main-container">
+        <h1 class="main-heading">Shorten Your Long URLs with Ease!</h1>
+        <p class="main-subtitle">
+            Paste your long URL below and generate a <strong>short & shareable link</strong> instantly!✂️💯
+        </p>
+        
     <form action="http://localhost:3000/api/v1/generator/shortUrl" method="post" class="url-form">
         <% if (locals.error) { %>
             <p class="error-message"><%= error %></p>
@@ -25,7 +27,8 @@
     </form>
     <% if (locals.shortUrl) { %>
         <a href="http://localhost:3000/" class="new-url-button">Generate New URL</a>
-    <% } %>
+        <% } %>
+    </div>
 </div>
 <%- include("./particles/footer.ejs") %>
 
