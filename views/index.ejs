@@ -12,7 +12,7 @@
             <p class="error-message"><%= error %></p>
         <% } %>
         <div class="input-group">
-            <input type="text" placeholder="Enter your long URL here (including https)" name="url" value="<%= locals.longUrl %>" class="url-input">
+            <input required type="text" placeholder="Enter your long URL here (including https)" name="url" value="<%= locals.longUrl %>" class="url-input">
             <button type="submit" class="generate-button">Generate</button>
         </div>
         <% if (locals.shortUrl) { %>
