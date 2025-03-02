@@ -14,6 +14,7 @@
                 <div class="navbar__links">
                     <% if (locals.inLoggedUser) { %>
                         <a href="/dashboard" class="navbar__link">Dashboard</a>
+                        <button class="navbar__link logout">Logout</button>
                     <% }else{ %>
                     <a href="/login" class="navbar__link">Login</a>
                     <a href="/register" class="navbar__link">Register</a>
@@ -24,3 +25,14 @@
     </div>
 </body>
 </html>
+
+<script>
+        const LogOutButton = document.querySelector('.logout')
+        LogOutButton.addEventListener('click', async () => {
+            await fetch('http://localhost:3000/logout',{
+                method:"POST"
+
+            });
+            window.location.reload();
+        });
+</script>

@@ -6,6 +6,7 @@ const {homePage} = require('../router/StaticSites/index')
 const {loginPage} = require('../router/StaticSites/index')
 const {registerPage} = require('../router/StaticSites/index')
 const router = express.Router()
+const RegisterSchema = require("../modal/RegisterSchema");
 const UserValidation = require('../middlewares/authWare')
 
 router.use(process.env.CONFIDENTIAL_API_URL, APIrouter)
@@ -15,13 +16,20 @@ router.get("/", UserValidation, homePage)
 router.get("/visithistory/:ShortId", visitHistory)
 router.get("/login", loginPage)
 router.get("/register", registerPage)
-router.get("/dashboard", UserValidation, (req, res) => {
+router.post("/logout", (req, res)=>{ 
+res.clearCookie("Access_Token").redirect("/login") 
+})
+router.get("/dashboard", UserValidation, async (req, res) => {
     if(req.user){
-        res.render('dashboard')
+        const DataOfUser = await RegisterSchema.findById(req.user.id).select('-password').populate('ShortURLDB');
+        console.log(DataOfUser);
+        res.render('dashboard', {
+            CombinedUserURL: DataOfUser,
+            inLoggedUser: req.user
+        });
     }else{
         res.redirect('/login')
     }
-res.send(UserValidation.user);
 })
 
 router.get("/:ShortID", RenderingtheURL)

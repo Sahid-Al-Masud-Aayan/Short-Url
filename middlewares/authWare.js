@@ -5,7 +5,6 @@ const UserValidation = (req, res, next)=>{
 
     if(accessToken.Access_Token) 
         jwt.verify(accessToken.Access_Token, process.env.JWT_SECRET_TOKEN ,function(err, decoded) {
-        console.log(decoded.foo) // bar
         if(err){
             req.user = null
             next()
@@ -13,7 +12,6 @@ const UserValidation = (req, res, next)=>{
         if(decoded.data){
             req.user = decoded.data
             next()
-            console.log(req.user.id);
             
         }
       });

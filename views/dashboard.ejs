@@ -1,9 +1,80 @@
 <%- include("./particles/navbar.ejs") %>
 
-<h1 class="">
-    Dashboard
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit History</title>
+    <style>
+        .heightfixer{
+            display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh; /* Ensures full height usage */
+    padding: 50px 0; /* Adjusts spacing */
+        }
+       
+        .header {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 900;
+            color: #003590;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            text-align: center;
+            background: #ffd000;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .url-box {
+            background: #0060a4;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .visit-history {
+            background: #1e9aff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .visit-item {
+            background: #ffd900;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="aligned-form heightfixer">
 
-    
+        <div class="containerdash">
+            <div class="header">Visit History</div>
+            <% if (locals.CombinedUserURL) { %>
+                <div class="user-info"><%= CombinedUserURL.fullname %><br>
+                    <%= CombinedUserURL.email %>
+                </div>
+                <% CombinedUserURL.ShortURLDB.forEach(element => { %>
+                    <div class="url-box">
+                        <strong>URL:</strong> <a href='<%= element.url%>' target="_blank" style="color: #ffea48; font-weight: 700;"><%= element.url  %></a><br>
+                        <strong>Short URL:</strong> <a href="<%= element.url%>" target="_blank"  style="color: #ffea48; font-weight: 700;">http://localhost:3000/<%= element.ShortID%></a>
+                        <div class="visit-history">
+                            <strong>Total Visit: <%= element.visitHistory.length %></strong>
+
+                            <% element.visitHistory.forEach(item => { %>
+                                <div class="visit-item"><%= item.clickedAt.toLocaleString() %></div>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% }) %>
+                <% } %>
+    </div>
+</div>
 </body>
 </html>
